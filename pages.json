@@ -1,0 +1,82 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/welcome/welcome",
+			"style": {
+				"navigationBarTitleText": "欢迎"
+			}
+		},
+		{
+			"path": "pages/history/history",
+			"style": {
+				"navigationBarTitleText": "对话"
+			}
+		},
+		{
+			"path": "pages/role/role",
+			"style": {
+				"navigationBarTitleText": "角色"
+			}
+		},
+		{
+			"path": "pages/api/api",
+			"style": {
+				"navigationBarTitleText": "API"
+			}
+		},
+		{
+			"path": "pages/config/config",
+			"style": {
+				"navigationBarTitleText": "设置"
+			}
+		},
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "聊天",
+				"app-plus": {
+					"bounce": "none"
+				}
+			}
+		}
+	],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "uni-app",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8"
+	},
+	"uniIdRouter": {},	
+	"tabBar": {
+		"color": "#888",
+		"selectedColor": "#000",
+	    "borderStyle": "black",
+		"backgroundColor": "#F8F8F8",
+		"list": [
+			{
+				"pagePath": "pages/history/history",
+				"iconPath": "static/chat.png",
+				"selectedIconPath": "static/chat.png",
+				"text": "对话"
+			},
+			{
+				"pagePath": "pages/role/role",
+				"iconPath": "static/role.png",
+				"selectedIconPath": "static/role.png",
+				"text": "角色"
+			},
+			{
+				"pagePath": "pages/api/api",
+				"iconPath": "static/model.png",
+				"selectedIconPath": "static/model.png",
+				"text": "API"
+			},
+			{
+				"pagePath": "pages/config/config",
+				"iconPath": "static/config.png",
+				"selectedIconPath": "static/config.png",
+				"text": "设置"
+			}
+		]
+	}
+}
