@@ -136,6 +136,8 @@
 					imgUrl: ''
 				})
 				this.showAddDialog = false
+				this.roleName = ''
+				this.roleDesc = ''
 				saveRoles(this.roleList)
 			},
 			

@@ -193,7 +193,7 @@
 				
 				let all_message = 'Instruction: ' + role['desc'] + '\n'
 				if (this.useMemory) all_message += this.parseMemory()
-				else all_message += 'Quesion: ' + this.message + '\nAnswer: '
+				else all_message += 'User: ' + this.message + '\nYou: '
 				console.log('all message:\n' + all_message)
 				
 				let promise = null
@@ -213,7 +213,7 @@
 				}
 				promise.then((res) => {
 					let result = res.result
-					if (result.startsWith('Answer:')) result = result.substring(7)
+					if (result.startsWith('You:')) result = result.substring(4)
 					result = result.trim()
 					this.chatList.push({
 						'role': role['name'],
@@ -223,14 +223,19 @@
 			},
 			
 			parseMemory() {
+				let role = this.roleList[this.roleIndex]
 				let message = ''
+				
 				for (let item of this.chatList) {
 					if (item['role'] === 'user') {
-						message += 'Quesion: ' + item['message'] + '\n'
+						message += 'User: ' + item['message'] + '\n'
+					} else if (item['role'] === role['name']) {
+						message += 'You: ' + item['message'] + '\n'
 					} else {
-						message += 'Answer: ' + item['message'] + '\n'
+						message += item['role'] + item['message'] + '\n'
 					}
 				}
+				
 				return message
 			},
 			

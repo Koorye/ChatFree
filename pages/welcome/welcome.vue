@@ -24,15 +24,28 @@
 		},
 		
 		onLoad() {
-			uni.request({
-				url: '/static/agreement.txt',
-				success: (res) => {
-					let text = res.data
-					// replace \n with <br>
-					text = text.replace(/\n/g, '<br>')
-					this.agreement = text
-				}
-			})
+			if (uni.getSystemInfoSync().platform === 'windows') {
+				uni.request({
+					url: '/static/agreement.txt',
+					success: (res) => {
+						let text = res.data
+						text = text.replace(/\n/g, '<br>')
+						this.agreement = text
+					}
+				})
+			} else {
+				plus.io.resolveLocalFileSystemURL('_www/static/agreement.txt', (entry) => {
+					entry.file((file) => {
+						let reader = new plus.io.FileReader()
+						reader.readAsText(file, 'utf-8')
+						reader.onloadend = (e) => {
+							let text = e.target.result
+							text = text.replace(/\n/g, '<br>')
+							this.agreement = text
+						}
+					})
+				})
+			}
 			
 			uni.getSystemInfo({
 				success: (res) => {

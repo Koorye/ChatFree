@@ -17,19 +17,30 @@
 		},
 		
 		onLoad() {
-			uni.request({
-				url: '/static/agreement.txt',
-				success: (res) => {
-					let text = res.data
-					this.agreement = text
-				}
-			})
+			if (uni.getSystemInfoSync().platform === 'windows') {
+				uni.request({
+					url: '/static/agreement.txt',
+					success: (res) => {
+						this.agreement = res.data
+					}
+				})
+			} else {
+				plus.io.resolveLocalFileSystemURL('_www/static/agreement.txt', (entry) => {
+					entry.file((file) => {
+						let reader = new plus.io.FileReader()
+						reader.readAsText(file, 'utf-8')
+						reader.onloadend = (e) => {
+							this.agreement = e.target.result
+						}
+					})
+				})
+			}
 		},
 		
 		methods: {
 			handleHelp() {
 				// 打开页面 https://github.com/Koorye/chat-free
-				plus.runtime.openURL('https://github.com/Koorye/chat-free')
+				plus.runtime.openURL('https://github.com/Koorye/ChatFree')
 			},
 			
 			handleShowAgreement() {
