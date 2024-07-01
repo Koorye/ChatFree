@@ -9,22 +9,22 @@
 1. 创建角色，点击添加角色，输入名称和描述，点击添加
 
 <!-- ![](examples/add%20role.jpg) -->
-<img src="examples/add%20role.jpg" width="200px">
+<img src="examples/add%20role.jpg" width="300px">
 
 2. 设置API Token，输入API Key、Secret Key，点击获取Access Token(如果有)，点击保存全部
 
 <!-- ![](examples/access.jpg) -->
-<img src="examples/access.jpg" width="200px">
+<img src="examples/access.jpg" width="300px">
 
 3. 创建对话，输入对话名，点击新对话
 
 <!-- ![](examples/chat.jpg) -->
-<img src="examples/chat.jpg" width="200px">
+<img src="examples/chat.jpg" width="300px">
 
 4. 在对话中随时切换角色，进行畅快的聊天吧！
 
 <!-- ![](examples/multi%20role%20chat1.jpg)![](examples/multi%20role%20chat2.jpg) -->
-<img src="examples/multi%20role%20chat1.jpg" width="200px"><img src="examples/multi%20role%20chat2.jpg" width="200px">
+<img src="examples/multi%20role%20chat1.jpg" width="300px"><img src="examples/multi%20role%20chat2.jpg" width="300px">
 
 ## 特性
 
